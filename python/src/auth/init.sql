@@ -2,17 +2,17 @@
 -- Create Auth Database
 
 -- User for DB access
-CREATE USER 'auth_user' @'locahost' IDENTIFIED BY 'auth_password';
+CREATE USER 'auth_user' @'localhost' IDENTIFIED BY 'auth_password';
 
 CREATE DATABASE auth;
 
-GRANT ALL PRIVELEGES ON auth.* TO 'auth_user'@'locahost';
+GRANT ALL PRIVILEGES ON auth.* TO 'auth_user'@'localhost';
 
 USE auth;
 
 CREATE TABLE user (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL
 );
 
