@@ -17,3 +17,5 @@ def login():
     auth = request.authorization
     if not auth:
         return "missing credentials", 401
+
+    # check if the user credentials are correct via username / password
