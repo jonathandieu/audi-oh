@@ -57,4 +57,11 @@ def createJWT(username, secret, authz):
     )
 
 if __name__ == "__main__":
+    # Tell Flask to look for IP addresses and requests on any docker containers.
     server.run(host="0.0.0.0", port=5000)
+
+    @server.route("/validate", method=["POST"])
+    def validate():
+        encoded_jwt = request.headers["Authorization"]
+
+        pass
