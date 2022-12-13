@@ -64,4 +64,7 @@ if __name__ == "__main__":
     def validate():
         encoded_jwt = request.headers["Authorization"]
 
+        if not encoded_jwt:
+            return "missing credentials", 401
+
         pass
