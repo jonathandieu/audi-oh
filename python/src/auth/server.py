@@ -12,6 +12,7 @@ server.config["MYSQL_PASSWORD"] = os.environ.get("MYSQL_PASSWORD")
 server.config["MYSQL_DB"] = os.environ.get("MYSQL_DB")
 server.config["MYSQL_PORT"] = os.environ.get("MYSQL_PASSWORD_PORT")
 
+# login route accepting only http post requests
 @server.route("/login", methods=["POST"])
 def login():
     auth = request.authorization
