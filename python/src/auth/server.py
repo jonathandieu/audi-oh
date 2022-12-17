@@ -68,4 +68,13 @@ if __name__ == "__main__":
         if not encoded_jwt:
             return "missing credentials", 401
 
-        pass
+        encoded_jwt = encoded_jwt.split(" ")[1]
+
+        try:
+            decoded = jwt.decode(
+                encoded_jwt, os.environ.get("JWT_SECRET"), algorithms=["HS256"]
+            )
+        except:
+            return "not authorized", 403
+
+        return decoded, 200
