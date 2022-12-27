@@ -1,3 +1,4 @@
+# API Version refers to the Kubernetes API version specified to be used
 apiVersion: apps/v1
 kind: Deployment
 metadata:
