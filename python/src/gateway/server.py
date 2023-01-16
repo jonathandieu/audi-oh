@@ -13,3 +13,7 @@ server.config["MONGO_URI"] = "mongodb://host.minikube.internal:27017/videos"
 
 
 mongo = PyMongo(server) # MongoDB instance
+
+# GridFS is required because BSON document size is limited to 16 MB
+# This will allow for sharding of the files > 16 MB and improved performance
+fs = gridfs.GridFS(mongo.db)
